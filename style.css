@@ -1,0 +1,171 @@
+/* Общие настройки страницы */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  /* Нежный весенний градиент на фоне */
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  overflow: hidden; /* Чтобы декорации не растягивали страницу */
+}
+
+/* Контейнер для центрирования */
+.container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+/* Сама открытка */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 40px 30px;
+  text-align: center;
+  position: relative;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Заголовок */
+.card-header h1 {
+  font-family: "Caveat", cursive; /* Рукописный шрифт */
+  color: #d63384;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+/* Рамка для фото */
+.photo-frame {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 25px auto;
+  border-radius: 50%; /* Делает фото круглым */
+  overflow: hidden;
+  border: 5px solid #ffc2d1;
+  box-shadow: 0 5px 15px rgba(214, 51, 132, 0.2);
+  position: relative;
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Чтобы фото красиво заполнило круг */
+}
+
+/* Текст поздравления */
+.card-body p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.signature {
+  font-family: "Caveat", cursive;
+  font-size: 1.8rem;
+  color: #d63384;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+/* Анимация плавного покачивания открытки */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Декоративные круги на заднем фоне */
+.bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: moveShape 20s infinite linear;
+}
+
+.shape:nth-child(1) {
+  width: 100px;
+  height: 100px;
+  top: 10%;
+  left: 10%;
+  animation-duration: 15s;
+}
+.shape:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  left: 80%;
+  animation-duration: 25s;
+}
+.shape:nth-child(3) {
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  left: 60%;
+  animation-duration: 18s;
+}
+.shape:nth-child(4) {
+  width: 200px;
+  height: 200px;
+  top: 80%;
+  left: 20%;
+  animation-duration: 30s;
+}
+.shape:nth-child(5) {
+  width: 60px;
+  height: 60px;
+  top: 20%;
+  left: 90%;
+  animation-duration: 12s;
+}
+
+@keyframes moveShape {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 480px) {
+  .card-header h1 {
+    font-size: 2.5rem;
+  }
+  .photo-frame {
+    width: 150px;
+    height: 150px;
+  }
+}
